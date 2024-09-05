@@ -27,6 +27,7 @@ if (isset($_POST)) {
                
                 // Sessions
                 $_SESSION['username'] = $fetch['username'];
+                $_SESSION['name'] = $fetch['name'];
                 $_SESSION['user_id'] = $fetch['id'];
                 $_SESSION['email'] = $fetch['email'];
 
