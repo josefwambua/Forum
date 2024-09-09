@@ -10,7 +10,7 @@ if(isset($_SESSION['username'])){
 
 if (isset($_POST)) {
     if (empty($_POST['email']) || empty($_POST['password'])) {
-        echo "<script>alert('One or more fields empyty')</script>";
+        echo "<script>alert('one or more fields are empty');</script>";
     } else {
         // get the data
         $email = $_POST['email'];
