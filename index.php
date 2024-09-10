@@ -44,7 +44,7 @@ $allTopics = $topics->fetchAll(PDO::FETCH_OBJ);
 							</div>
 							<div class="col-md-10">
 								<div class="topic-content pull-right">
-									<h3><a href="topic.php?id;<?php echo $topic->$id; ?>"><?php echo $topic->title; ?></a></h3>
+									<h3><a href="topics/topic.php?id=<?php echo $topic->id; ?>"><?php echo $topic->title; ?></a></h3>
 									<div class="topic-info">
 										<a href="category.html"><?php echo $topic->category ?>;</a> >> <a href="profile.html"><?php echo $topic->user_name?></a> >> Posted on: <?php echo $topic->created_at ?>
 										<span class="color badge pull-right"><?php echo $topic->count_replies ?></span>
