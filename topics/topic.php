@@ -1,29 +1,28 @@
 <?php require "../includes/header.php";?>
 <?php require "../config/config.php"?>
-<?php 
+<?php
 
 $forum_name = "Our Forum";
-if(isset($_GET['id'])){
-	$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-	$topic = $conn->query("SELECT *FROM topics WHERE id = '$id'");
-	$topic->execute();
+    $topic = $conn->query("SELECT *FROM topics WHERE id = '$id'");
+    $topic->execute();
 
-	$singleTopic = $topic->fetch(PDO::FETCH_OBJ);
-	// number of posts for each user
+    $singleTopic = $topic->fetch(PDO::FETCH_OBJ);
+    // number of posts for each user
 
-	$topicCount= $conn->query("SELECT COUNT(*) AS count_topics FROM topics WHERE user_name='$singleTopic->user_name'");
-	$topicCount->execute();
-	$count=$topicCount->fetch(PDO::FETCH_OBJ);	
-	// get replies dynamically
-	
-	$reply = $conn->query("SELECT *FROM replies WHERE topic_id = '$id'");
-	$topic->execute();
+    $topicCount = $conn->query("SELECT COUNT(*) AS count_topics FROM topics WHERE user_name='$singleTopic->user_name'");
+    $topicCount->execute();
+    $count = $topicCount->fetch(PDO::FETCH_OBJ);
+    // get replies dynamically
 
-	$allReplies = $reply->fetchAll(PDO::FETCH_OBJ);
+    $reply = $conn->query("SELECT *FROM replies WHERE topic_id = '$id'");
+    $topic->execute();
+
+    $allReplies = $reply->fetchAll(PDO::FETCH_OBJ);
 
 }
-
 
 ?>
 
@@ -33,7 +32,7 @@ if(isset($_GET['id'])){
 				<div class="main-col">
 					<div class="block">
 						<h1 class="pull-left"><?php echo $singleTopic->title; ?></h1>
-						<h4 class="pull-right"><?php echo $forum_name?></h4>
+						<h4 class="pull-right"><?php echo $forum_name ?></h4>
 						<div class="clearfix"></div>
 						<hr>
 						<ul id="topics">
@@ -53,19 +52,29 @@ if(isset($_GET['id'])){
 								<div class="topic-content pull-right">
 										<p>
 											<?php echo $singleTopic->body ?>
-										</p>								</div>
+										</p>								
+								</div>
+								
+							<?php if(isset($SESSION['username'])) : ?>
+							<?php if($singleTopic->user_name == $_SESSION['username']): ?>
+							<a class="btn btn-danger" href="delete.php?id=<?php echo $singleTopic->id;?>" role="button">Delete</a>
+							<a class="btn btn-warning" href="update.php?id=<?php echo $singleTopic->id;?>" role="button">Update</a>
+							<?php endif ; ?>
+							<?php endif ; ?>
 							</div>
+
 						</div>
+						
 					</li>
-					<?php foreach($allReplies as $reply) : ?>
+					<?php foreach ($allReplies as $reply): ?>
 					<li class="topic topic">
 						<div class="row">
 							<div class="col-md-2">
 								<div class="user-info">
 									<img class="avatar pull-left" src="../img/<?php echo $reply->user_image; ?>" />
 									<ul>
-										<li><strong><?php echo $reply->user_name?></strong></li>
-										<li>43 Posts</li>
+										<li><strong><?php echo $reply->user_name ?></strong></li>
+
 										<li><a href="profile.php">Profile</a>
 									</ul>
 								</div>
@@ -77,11 +86,11 @@ if(isset($_GET['id'])){
 							</div>
 						</div>
 					</li>
-					<?php endforeach ?>
+					<?php endforeach?>
 				</ul>
-				
+
 				<h3>Reply To Topic</h3>
-				<form role="form">				
+				<form role="form">
   					<div class="form-group">
 						<textarea id="reply" rows="10" cols="80" class="form-control" name="reply"></textarea>
 						<script>
@@ -93,6 +102,5 @@ if(isset($_GET['id'])){
 					</div>
 				</div>
 			</div>
-			
-			<?php require "includes/footer.php"?>
-			
+
+			<?php require "../includes/footer.php";?>

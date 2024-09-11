@@ -5,6 +5,19 @@
 if(!isset($_SESSION['username'])){
     header("Location: ".APPURL."");
 }
+
+// getting the data
+if(isset($_GET['id'])){
+    $id= $_GET['id'];
+    $select =$conn->query("SELECT * FROM topics WHERE id = '$id'");
+    $select->execute();
+    $topic = $select->fetch(PDO::FETCH_OBJ);
+
+
+    if($topic->user_name !== $_SESSION['usernmae']){
+        header("Location: ".APPURL."");
+    };
+}
 if (isset($_POST['submit'])) {
 
     if (empty($_POST['title']) or empty($_POST['category']) or empty($_POST['body'])) {
@@ -14,22 +27,18 @@ if (isset($_POST['submit'])) {
         $category = $_POST['category'];
         $body = $_POST['body'];
 		$user_name = $_SESSION['name'];
-		$user_image = $_SESSION['user_image'];
-
 
         
-        // inserting the values
-        $insert = $conn->prepare("INSERT INTO topics(title, category, body, user_name, user_image)
-		VALUES (:title, :category, :body, :user_name, :user_image)");
- 
-        $insert->execute(
+        // updating the values
+        $update = $conn->prepare("UPDATE topics SET title = :title, category = :category, body = :body, user_name = :user_name");
+	
+
+        $update->execute(
             [
                 ":title" => $title,
                 ":category" => $category,
                 ":body" => $body,
                 ":user_name" => $user_name,
-                ":user_image" => $user_image,
-
                
             ]
         );
@@ -49,10 +58,10 @@ if (isset($_POST['submit'])) {
 						<h4 class="pull-right">A Simple Forum</h4>
 						<div class="clearfix"></div>
 						<hr>
-						<form role="form" method="post" action="create.php">
+						<form role="form" method="post" action="update.php?id=<?php echo $id; ?>">
 							<div class="form-group">
 								<label>Topic Title</label>
-								<input type="text" class="form-control" name="title" placeholder="Enter Post Title">
+								<input type="text" value="<?php echo $topic->title; ?>" class="form-control" name="title" placeholder="Enter Post Title">
 							</div>
 							<div class="form-group">
 								<label>Category</label>
@@ -66,10 +75,10 @@ if (isset($_POST['submit'])) {
 							</div>
 								<div class="form-group">
 									<label>Topic Body</label>
-									<textarea id="body" rows="10" cols="80" class="form-control" name="body"></textarea>
+									<textarea id="body" rows="10" cols="80" class="form-control" name="body"><?php echo $topic->body; ?></textarea>
 									<script>CKEDITOR.replace('body');</script>
 								</div>
-							<button type="submit" name="submit" class="color btn btn-default">Submit</button>
+							<button type="submit" name="submit" class="color btn btn-default">Update</button>
 						</form>
 					</div>
 				</div>

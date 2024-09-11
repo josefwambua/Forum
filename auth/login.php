@@ -30,7 +30,7 @@ if (isset($_POST)) {
                 $_SESSION['name'] = $fetch['name'];
                 $_SESSION['user_id'] = $fetch['id'];
                 $_SESSION['email'] = $fetch['email'];
-                $_SESSION['user_image'] = $fetch['image'];
+                $_SESSION['user_image'] = $fetch['avatar'];
 
 
                 header("location:".APPURL."");
