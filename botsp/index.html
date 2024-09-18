@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstraping</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <div class="container">
+        <a href="" class="navbar-brand active">Home</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" arial-controls="nav" arial-label="Expand navigation">
+          <div class="span navbar-toggler-icon"></div>
+
+        </button>
+        <!--Collapsing the navbar-->
+        <div class="collapse navbar-collapse"  id="nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Store</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- 
+    hierarchy of bootstrap
+    container -> row -> column > -box- -->
+    <div class="container">
+      <!-- g for gaps -->
+      <div class="row row-cols-2 g-2">
+        <div class="col">
+          <div class="box">
+            <!-- <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
+              repellat nihil eum quia sit voluptatem enim error suscipit, dolore
+              ex. Ipsam consequuntur reiciendis dolorem officia nobis nisi dolor
+              delectus odio?
+            </p> -->
+          </div>
+        </div>
+        <!-- offset is for wrapping the rows -->
+        <!-- <div class="col-4 offset-2"> -->
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <!-- <div class="col-lg-4 col-8">
+          <div class="box"></div>
+        </div>
+      </div> -->
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <!-- tables -->
+
+      <div class="container">
+        <table class="table table-hover table-striped table-group-divider">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="table-danger">Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Forms-->
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <br /><br />
+      <!-- Cards -->
+      <div class="container">
+        <div class="card-group g-2">
+          <div class="card" style="width: 300px">
+            <img class="card-img-top" src="placeholder.png" alt="Card image" />
+            <div class="card-body">
+              <h2 class="card-title">Title</h2>
+              <span class="card-subtitle">Subtitle</span>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus iusto nisi architecto eos. Fugit, ex. Nisi iusto explicabo porro, natus impedit odit. Autem, quaerat possimus quam tenetur labore ad numquam?
+              </p>
+            </div>
+          </div>
+          <div class="card" style="width: 300px">
+            <img class="card-img" src="placeholder.png" alt="Card image" />
+            <div class="card-body card-img-overlay" style="background: burlywood">
+              <h2 class="card-title">Title</h2>
+              <span class="card-subtitle">Subtitle</span>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus iusto nisi architecto eos. Fugit, ex. Nisi iusto explicabo porro, natus impedit odit. Autem, quaerat possimus quam tenetur labore ad numquam?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <span>
+      <br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br>
+    </span>
+
+
+<!--Modals-->
+<div class="container">
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Open</button>
+    <div class="modal fade" id="modal">
+      <div class="modal-dialog modal-fullscreen-md-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Header</h1>
+            <button class="btn-close" data-bs-dismiss="modal" data-bs-target="#modal"></button>  
+          </div>  
+            <div class="modal-body">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur aliquam temporibus neque ducimus quas, distinctio quisquam officiis corporis expedita labore aspernatur provident similique quod, fugiat blanditiis saepe eius reprehenderit. Esse.
+              Placeat cupiditate ratione optio possimus, commodi dicta libero at? Dolores inventore excepturi pariatur molestiae tempore facere nihil repellat placeat ipsa, voluptates minus quae nam neque dolorem totam voluptate eligendi adipisci.
+              Iure molestias aperiam, iste, quae harum repellendus cumque accusamus amet distinctio facilis veniam qui repudiandae id corrupti placeat ut obcaecati quaerat expedita maiores alias voluptas nam quibusdam impedit eos! Delectus?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eaque aspernatur ipsum alias, aliquid voluptatum tempore, voluptas architecto velit necessitatibus culpa vitae laudantium quia similique deleniti soluta molestiae ea sint?
+            Laboriosam eos tenetur ratione culpa sequi maiores facilis sit incidunt quibusdam ducimus tempora dolorum mollitia laborum doloremque velit recusandae quis at, saepe architecto officiis facere sunt consequatur itaque. Doloribus, facilis.
+            Recusandae alias possimus cupiditate perspiciatis vero mollitia inventore atque dolor sint, maxime aliquam itaque, rerum sunt ab eos modi non eum, consequatur officia consequuntur ex fugit cumque accusantium maiores! Unde?
+            Omnis asperiores delectus, quidem quasi optio nulla quia at architecto dicta odio corrupti eligendi quo in labore adipisci eum nesciunt facilis aut. Animi eos error officia ipsum quia autem facilis?s
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptas atque molestias aut qui iste consectetur molestiae, adipisci nesciunt nobis quis voluptate tempore minima quas, aspernatur, minus enim rem sapiente.
+          Ullam, tempore! Necessitatibus aliquid rerum a, debitis nam odit maxime, libero inventore voluptas voluptatum sint possimus magnam minus asperiores neque sapiente quos sit laborum temporibus hic architecto similique, consectetur nemo.
+          Quidem, sapiente quisquam hic illum ex quasi voluptatibus? Distinctio, eveniet deleniti, velit unde dignissimos ullam obcaecati aspernatur, repellendus assumenda consequuntur error. Quo amet quibusdam nostrum repellat magnam, velit deleniti cumque.
+          Adipisci illum quis veniam praesentium id tempora, sed doloribus asperiores, quam mollitia laborum minus dignissimos, ipsa quo ratione aliquam fugit accusamus et alias tempore vitae culpa magnam. Qui, dicta odio?
+          Nam quam asperiores nihil ab accusantium optio debitis voluptas tempora vero. Fuga culpa, mollitia quam magnam et exercitationem nihil dolore minus, quibusdam magni eos ipsam sapiente maxime fugit quis eum.  
+          </div>
+
+          
+          <div class="modal-footer">
+            Footer
+            <button class="btn btn-primary" data-bs-dismiss="modal" data-bs>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        <br>
+        <br>
+
+
+            <br /><br /><br />
+  </body>
+</html>
