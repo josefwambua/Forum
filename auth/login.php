@@ -3,11 +3,11 @@
 <?php require "../config/config.php"?>
 
 <?php
-
+//  check if the username is logged in, else redirect to the homepage
 if(isset($_SESSION['username'])){
     header("Location: ".APPURL."");
 }
-
+// check if one of the fields are empty
 if (isset($_POST)) {
     if (empty($_POST['email']) || empty($_POST['password'])) {
         echo "<script>alert('one or more fields are empty');</script>";
@@ -16,7 +16,7 @@ if (isset($_POST)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // write the query
+        // check if the user exists in the database using their email
         $login = $conn->query("SELECT * FROM users WHERE email = '$email'");
         $login->execute();
 
@@ -50,7 +50,7 @@ if (isset($_POST)) {
 
 ?>
 
-
+<!-- bootstrap containers for the login pages -->
 <div class="container">
 		<div class="row">
 			<div class="col-md-8">
