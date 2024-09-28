@@ -3,10 +3,12 @@
 
 <?php
 
-
+// check if the username exists else redirect to the homepage
 if(isset($_SESSION['username'])){
     header("Location: ".APPURL."");
 }
+
+// check if the fields are empty on clicking the submit button
 if (isset($_POST['submit'])) {
 
     if (empty($_POST['name']) or empty($_POST['email']) or empty($_POST['username']) or empty($_POST['password']) or empty($_POST['about'])) {
@@ -25,6 +27,7 @@ if (isset($_POST['submit'])) {
         $insert = $conn->prepare("INSERT INTO users(name, email, username, password, about, avatar)
 		VALUES (:name, :email, :username, :password, :about, :avatar)");
 
+	    // executing each field
         $insert->execute(
             [
                 ":name" => $name,
@@ -40,7 +43,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
+<!-- form -->
 <div class="container">
 		<div class="row">
 			<div class="col-md-8">
