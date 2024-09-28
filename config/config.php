@@ -1,20 +1,25 @@
+// database connection
+
 <?php
 
 //host
 try{
+    //declaring host as a constant
 define("HOST", "localhost");
 
 // db name
 define("DBNAME", "forum");
 
-// use
+// user
 define("USER", "root");
 
 // password
 define("PASS", "");
 
 $conn = new PDO ("mysql:host=".HOST.";dbname=".DBNAME."", USER, PASS);
-$conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // using pdo
+    $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 // if($conn == true){
