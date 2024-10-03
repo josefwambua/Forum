@@ -16,9 +16,11 @@ define("USER", "root");
 // password
 define("PASS", "");
 
+
+    // connection using php data object
 $conn = new PDO ("mysql:host=".HOST.";dbname=".DBNAME."", USER, PASS);
 
-    // using pdo
+    // executing
     $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
@@ -27,6 +29,7 @@ $conn = new PDO ("mysql:host=".HOST.";dbname=".DBNAME."", USER, PASS);
 // }else{
 //     echo "error";
 // }
+    // catching the error
 } catch (PDOException $Exception) {
     echo "error: ".$Exception->getMessage();
 }
